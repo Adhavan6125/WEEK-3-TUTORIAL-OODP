@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Product {
+private:
+    int productID;
+    string productName;
+    double price;
+    int quantity;
+
+public:
+    // Constructor
+    Product(int id, string name, double p, int q) {
+        productID = id;
+        productName = name;
+        price = p;
+        quantity = q;
+    }
+
+    // Calculate total price of the product
+    double calculateTotalPrice() {
+        return price * quantity;
+    }
+
+    // Display product details
+    void productDetails() {
+        cout << "Product ID: " << productID << endl;
+        cout << "Product Name: " << productName << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Quantity: " << quantity << endl;
+        cout << "Total Price: $" << calculateTotalPrice() << endl;
+        cout << "-----------------------------" << endl;
+    }
+};
+
+// Function to display all products in the cart
+void displayCart(Product products[], int size) {
+    cout << "Shopping Cart Contents:\n";
+    for (int i = 0; i < size; i++) {
+        products[i].productDetails();
+    }
+}
+
+// Demonstration
+int main() {
+    // Create product objects
+    Product cart[3] = {
+        Product(101, "Laptop", 750.00, 1),
+        Product(102, "Mouse", 25.50, 2),
+        Product(103, "Keyboard", 45.00, 1)
+    };
+
+    // Display all product details in the cart
+    displayCart(cart, 3);
+
+    return 0;
+}
+
+Explanation:
+
+The Product class holds product data and calculates total cost.
+
+productDetails() displays information about the product.
+
+displayCart() iterates through an array of Product objects and shows each one.
+
+In main(), three sample products are added to the cart and displayed without any user input.
+
+
