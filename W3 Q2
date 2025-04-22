@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    int studentID;
+    string name;
+    int marks[5]; // Marks for 5 subjects
+
+public:
+    // Constructor
+    Student(int id, string studentName, int m[5]) {
+        studentID = id;
+        name = studentName;
+        for (int i = 0; i < 5; i++) {
+            marks[i] = m[i];
+        }
+    }
+
+    // Function to calculate average marks
+    float calculateAverage() {
+        int sum = 0;
+        for (int i = 0; i < 5; i++) {
+            sum += marks[i];
+        }
+        return sum / 5.0;
+    }
+
+    // Function to display student details
+    void displayDetails() {
+        cout << "Student ID: " << studentID << endl;
+        cout << "Name: " << name << endl;
+        cout << "Marks: ";
+        for (int i = 0; i < 5; i++) {
+            cout << marks[i] << " ";
+        }
+        cout << endl;
+        cout << "Average Marks: " << calculateAverage() << endl;
+        cout << "-------------------------" << endl;
+    }
+};
+
+// Demonstration
+int main() {
+    // Sample marks arrays
+    int marks1[5] = {85, 90, 78, 88, 92};
+    int marks2[5] = {76, 80, 70, 65, 89};
+    int marks3[5] = {90, 95, 93, 97, 91};
+
+    // Creating student objects
+    Student student1(1, "John Doe", marks1);
+    Student student2(2, "Jane Smith", marks2);
+    Student student3(3, "Alice Brown", marks3);
+
+    // Display details
+    student1.displayDetails();
+    student2.displayDetails();
+    student3.displayDetails();
+
+    return 0;
+}
+
+Explanation:
+
+The Student class includes a constructor for initialization.
+
+The calculateAverage() computes the average of the 5 subject marks.
+
+The displayDetails() method prints student ID, name, marks, and average.
+
+In main(), three student objects are created with pre-defined data and displayed.
+
+
