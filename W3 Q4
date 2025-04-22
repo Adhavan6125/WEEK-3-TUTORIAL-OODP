@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    string brand;
+    string model;
+    double price;
+    int year;
+
+    // Static data member
+    static int totalCars;
+
+public:
+    // Constructor
+    Car(string b, string m, double p, int y) {
+        brand = b;
+        model = m;
+        price = p;
+        year = y;
+        totalCars++; // Increment count on each car creation
+    }
+
+    // Function to display car details
+    void displayDetails() {
+        cout << "Brand: " << brand << endl;
+        cout << "Model: " << model << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Year: " << year << endl;
+        cout << "-----------------------------" << endl;
+    }
+
+    // Static function to get total car count
+    static int getTotalCars() {
+        return totalCars;
+    }
+};
+
+// Definition of static member
+int Car::totalCars = 0;
+
+// Demonstration
+int main() {
+    // Create car objects
+    Car car1("Toyota", "Camry", 24000.00, 2021);
+    Car car2("Honda", "Civic", 22000.00, 2022);
+    Car car3("Ford", "Mustang", 36000.00, 2023);
+
+    // Display car details
+    car1.displayDetails();
+    car2.displayDetails();
+    car3.displayDetails();
+
+    // Display total number of cars
+    cout << "Total Cars in Inventory: " << Car::getTotalCars() << endl;
+
+    return 0;
+}
+
+Explanation:
+
+The class Car includes basic attributes and a static member totalCars.
+
+Each time a Car object is created, totalCars is incremented.
+
+The displayDetails() function shows the car's info.
+
+A static function getTotalCars() is used to access the count.
+
+In main(), three cars are created and their details are printed along with the total number of cars in the inventory.
+
+
